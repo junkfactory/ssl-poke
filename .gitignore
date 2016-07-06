@@ -3,3 +3,4 @@ target
 *.iml
 *.jpr
 *.versionsBackup
+dependency-reduced-pom.xml

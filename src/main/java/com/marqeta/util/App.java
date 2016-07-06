@@ -1,5 +1,7 @@
 package com.marqeta.util;
 
+import org.apache.commons.lang3.ArrayUtils;
+
 import javax.net.ssl.SSLSocket;
 import javax.net.ssl.SSLSocketFactory;
 import java.io.IOException;
@@ -34,6 +36,11 @@ public class App
         sslsocket.setEnabledProtocols(new String[] {
                 "SSLv3", "TLSv1", "TLSv1.2"
         });
+
+        System.out.println("ENABLED CIPHER SUITES");
+        System.out.println(ArrayUtils.toString(sslsocket.getEnabledCipherSuites()));
+        System.out.println("ENABLED PROTOCOLS");
+        System.out.println(ArrayUtils.toString(sslsocket.getEnabledProtocols()));
         InputStream in = sslsocket.getInputStream();
         OutputStream out = sslsocket.getOutputStream();
         out.write(1);
